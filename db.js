@@ -11,6 +11,7 @@ export const connectDb=async()=>{
         process.exit(1);
     }
 }
+
 const UserSchema= new Schema({
     Username: {type:String , required:true,unique:true},
     password: {type:String,required:true}
@@ -32,6 +33,7 @@ const contentSchema=new Schema({
     tags:[{type:Types.ObjectId,ref:'Tag'}],
     userId:{type:Types.ObjectId,ref:'User',required:true}
 })
+export const ContentModel=model('Content',contentSchema);
 
 
 
