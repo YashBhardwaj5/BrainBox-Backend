@@ -27,13 +27,13 @@ const linkSchema=new Schema({
 })
 const contentTypes=['image','video','article','audio'];
 const contentSchema=new Schema({
-    link:{type:String,required:true},
-    type:{type:String,enum:contentTypes,required:true},
-    title:{type:String,required:true},
+    link:{type:String},
+    type:{type:String,enum:contentTypes},
+    title:{type:String},
     tags:[{type:Types.ObjectId,ref:'Tag'}],
-    userId:{type:Types.ObjectId,ref:'User',required:true}
+    userId:{type:Types.ObjectId,ref:'User'}
 })
-export const ContentModel=model('Content',contentSchema);
+export const Content=model('Content',contentSchema);
 
 
 
